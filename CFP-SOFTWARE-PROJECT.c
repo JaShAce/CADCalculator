@@ -40,7 +40,7 @@ int GWA() {
 	}
 	
 
-	printf("balls\n");
+	printf("test\n");
 	
 	for(i=0;i<=(n-1);i++) {
 		printf("Input Grade for %s: ", CourseNames2[i]);
