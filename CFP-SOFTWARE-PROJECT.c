@@ -64,7 +64,7 @@ int GWA() { // Calculate GWA
 	}
 	
 	// Average second semester
-	for(j=0; j<=m; j++) {
+	for(j=0; j<=n; j++) {
 		sum2 = sum2 + CourseGrades2[i];
 		avg2 = sum2/i;
 	}
