@@ -57,13 +57,13 @@ int GWA() { // Calculate GWA
 		scanf("%d", &CourseGrades2[i]);
 	}
 	
-	// GWA(GPA?) first semester
+	// Average first semester
 	for(j=0; j<= m; j++) {
 		sum1 = sum1 + CourseGrades1[i];
 		avg1 = sum1/i;
 	}
 	
-	// GWA(GPA?) second semester
+	// Average second semester
 	for(j=0; j<=m; j++) {
 		sum2 = sum2 + CourseGrades2[i];
 		avg2 = sum2/i;
