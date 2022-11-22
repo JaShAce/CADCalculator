@@ -5,27 +5,20 @@ void GPA(int* avg1, int* avg2); // GPA Calc semestral no unit
 void GWA(int GPA1, int GPA2, int* WeightedAve); // GWA Calc with unit weight
 int CAD(int GWA, int regStudent); // Cad Checker
 
-
-//constant global variables
-const char CourseNames1[12][10] = // first semester grade 12 subjects
-	{"CCF 03", "BIO 01", "BIO 01L", "EIP 01S", 
-	 "ELEC 01", "ENGL 01", "LIT 01", "PE 03", 
-	 "PHYS 01", "PHYS 01L", "REED 03", "RES 02S"};
-const char CourseNames2[11][10] = // second semester grade 12 subjects
-	{"CCF 04", "BIO 02", "H", "L", "N", "AWDJJI"};
-	
-	// first semester grade 12 subject unit score
-const int CourseUnits1[12] = {0, 1, 3, 3, 3, 3, 3, 1, 3, 1, 3, 3};
-	// second semester grade 12 subject unit score
-const int CourseUnits2[11] = {0, 1, 3, 3, 3, 3, 1, 3, 1, 3, 3};
-
 // global variables
 int CourseGrades1[12], CourseGrades2[11];
 size_t m = sizeof(CourseGrades1)/sizeof(int) - 1, n = sizeof(CourseGrades2)/sizeof(int) - 1; 
 	
 	
 	
-int main () {
+int main () {	
+	const char CourseNames1[12][10] = // first semester grade 12 subjects
+	{"CCF 03", "BIO 01", "BIO 01L", "EIP 01S", 
+	 "ELEC 01", "ENGL 01", "LIT 01", "PE 03", 
+	 "PHYS 01", "PHYS 01L", "REED 03", "RES 02S"};
+	const char CourseNames2[11][10] = // second semester grade 12 subjects
+	{"CCF 04", "BIO 02", "H", "L", "N", "AWDJJI"};
+	
 	char name[50];
 	int i, regStudent, GPAve[2], GWAve;
 	
@@ -84,9 +77,9 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 	int i, avg1, avg2, sum1 = 0, sum2 = 0, unitcount1 = 0, unitcount2 = 0;
 
 	// first semester grade 12 subject unit score
-	int CourseUnits1[12] = {0, 1, 3, 3, 3, 3, 3, 1, 3, 1, 3, 3};
+	const int CourseUnits1[12] = {0, 1, 3, 3, 3, 3, 3, 1, 3, 1, 3, 3};
 	// second semester grade 12 subject unit score
-	int CourseUnits2[11] = {0, 1, 3, 3, 3, 3, 1, 3, 1, 3, 3};
+	const int CourseUnits2[11] = {0, 1, 3, 3, 3, 3, 1, 3, 1, 3, 3};
 
 	// Average first semester w/out CCF
 	for(i=0; i<=11; i++) {
