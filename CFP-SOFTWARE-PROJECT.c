@@ -3,7 +3,7 @@
 // functions
 void GPA(int* avg1, int* avg2); // GPA Calc semestral no unit
 void GWA(int GPA1, int GPA2, int* WeightedAve); // GWA Calc with unit weight
-void CAD(int GWA); // Cad Checker
+int CAD(int GWA, int regStudent); // Cad Checker
 
 
 //constant global variables
@@ -63,7 +63,12 @@ int main () {
 	printf("First Semester GPA: %d\n", GPAve[0]);
 	printf("Second Semester GPA: %d\n", GPAve[1]);
 	printf("General Weighted Average (GWA): %d\n", GWAve);
-	CAD(GWAve);
+	if(CAD(GWAve, regStudent) == 1) {
+		printf("You are eligible for CAD");	
+	}
+	else {
+		printf("You are not eligible for CAD");
+	}
 	
 	
 	return 0;
@@ -102,13 +107,15 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 	// Average first semester w/out CCF
 	for(i=0; i<=11; i++) {
 		sum1 = sum1 + (CourseGrades1[i] * CourseUnits1[i]);
+		unitcount1 = unitcount1 + CourseUnits1[i];
 	}
-	avg1 = sum1 / 12;
+	avg1 = sum1 / unitcount1;
 	// Average second semester w/out CCF
 	for(i=0; i<=10; i++) {
 		sum2 = sum2 + (CourseGrades2[i] * CourseUnits2[i]);
+		unitcount2 = unitcount2 + CourseUnits2[i];
 	}
-	avg2 = sum2 / 11;
+	avg2 = sum2 / unitcount2;
 	
 	*WeightedAve = (avg1 + avg2) / 2;
 	
@@ -122,21 +129,23 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 	return;
 }
 
-void CAD(int GWA) { // Check if passes CAD requirements
+int CAD(int GWA, int regStudent) { // Check if passes CAD requirements
 	// check flowchart for program flow
-	int regStudent;
+	int i;
 	
-	if(regStudent == 1) {
-		if(GWA >= 85) {
-			printf("You are eligible for CAD");		
+	if(regStudent != 0 && GWA >= 90) {
+		for(i=0;i<=m;i++) {
+			if (CourseGrades1[i] < 85) {
+				return 0;
+			}
 		}
-		else {
-			printf("You are not eligible for CAD");
-		}
-	}
-	else {
-		printf("You are not eligible for CAD");
+		for(i=0;i<=n;i++) {
+			if (CourseGrades2[i] < 85) {
+				return 0;
+			}
+		}	
+		return 1;	
 	}
 	
-	return;
+	return 0;
 }
