@@ -29,16 +29,6 @@ int main () {
 	char name[50];
 	int i, regStudent, GPAve[2], GWAve;
 	
-	/*
-	for(i=0;i<=m;i++) {
-		printf("%s\n", CourseNames1[i]);
-	}
-	for(i=0;i<=n;i++) {
-		printf("%s\n", CourseNames2[i]);
-	}
-	printf("\n\n%d, %d\n\n", m, n);
-	*/
-	
 	// input	
 	printf("What is your full name? ");
 	scanf("%s", &name);
@@ -70,7 +60,6 @@ int main () {
 		printf("You are not eligible for CAD");
 	}
 	
-	
 	return 0;
 }
 
@@ -87,11 +76,6 @@ void GPA(int* avg1, int* avg2) { // Calculate GWA
 		sum2 = sum2 + CourseGrades2[i];
 	}
 	*avg2 = sum2 / 11;
-
-	/*
-	printf("%d\n", sum1);	
-	printf("%d\n", sum2);
-	*/	
 
 	return;
 }
@@ -119,13 +103,6 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 	
 	*WeightedAve = (avg1 + avg2) / 2;
 	
-	/*
-	printf("%d\n", sum1);
-	printf("%d\n", avg1);	
-	printf("%d\n", sum2);
-	printf("%d\n", avg2);
-	*/
-	
 	return;
 }
 
@@ -146,6 +123,5 @@ int CAD(int GWA, int regStudent) { // Check if passes CAD requirements
 		}	
 		return 1;	
 	}
-	
 	return 0;
 }
