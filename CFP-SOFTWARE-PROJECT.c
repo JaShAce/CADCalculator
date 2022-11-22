@@ -76,4 +76,21 @@ int GWA() { // Calculate GWA
 
 int CAD(int GWA) { // Check if passes CAD requirements
 	// check flowchart for program flow
+	int regStudent;
+	
+	if(regStdent == 1) {
+		if(GWA >= 85) {
+			printf("You are eligible for CAD");		
+		}
+		else {
+			printf("You are not eligible for CAD");
+		}
+	}
+	else {
+		printf("You are not eligible for CAD");
+	}
+	
+	return 0;
+}
+
 }
