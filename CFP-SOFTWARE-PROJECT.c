@@ -92,5 +92,3 @@ int CAD(int GWA) { // Check if passes CAD requirements
 	
 	return 0;
 }
-
-}
