@@ -7,7 +7,7 @@ int CAD(int GWA, int regStudent); // Cad Checker
 
 // global variables
 int CourseGrades1[12], CourseGrades2[11];
-size_t m = sizeof(CourseGrades1)/sizeof(int) - 1, n = sizeof(CourseGrades2)/sizeof(int) - 1; 
+const size_t m = sizeof(CourseGrades1)/sizeof(int) - 1, n = sizeof(CourseGrades2)/sizeof(int) - 1; 
 	
 	
 	
@@ -24,7 +24,7 @@ int main () {
 	
 	// input	
 	printf("What is your full name? ");
-	scanf("%s", &name);
+	fgets(name, 50, stdin);
 	printf("Are you a regular student? Type \"1\" if yes and \"0\" if no: ");
 	scanf("%d", &regStudent);
 	
@@ -60,15 +60,15 @@ void GPA(int* avg1, int* avg2) { // Calculate GWA
 	int i, sum1 = 0, sum2 = 0;
 			
 	// Average first semester
-	for(i=0; i<=11; i++) {
+	for(i=0; i<=m; i++) {
 		sum1 = sum1 + CourseGrades1[i];
 	}
-	*avg1 = sum1 / 12;
+	*avg1 = sum1 / m;
 	// Average second semester
-	for(i=0; i<=10; i++) {
+	for(i=0; i<=n; i++) {
 		sum2 = sum2 + CourseGrades2[i];
 	}
-	*avg2 = sum2 / 11;
+	*avg2 = sum2 / n;
 
 	return;
 }
@@ -81,14 +81,16 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 	// second semester grade 12 subject unit score
 	const int CourseUnits2[11] = {0, 1, 3, 3, 3, 3, 1, 3, 1, 3, 3};
 
+
 	// Average first semester w/out CCF
-	for(i=0; i<=11; i++) {
+	for(i=0; i<=m; i++) {
 		sum1 = sum1 + (CourseGrades1[i] * CourseUnits1[i]);
 		unitcount1 = unitcount1 + CourseUnits1[i];
 	}
 	avg1 = sum1 / unitcount1;
+	
 	// Average second semester w/out CCF
-	for(i=0; i<=10; i++) {
+	for(i=0; i<=n; i++) {
 		sum2 = sum2 + (CourseGrades2[i] * CourseUnits2[i]);
 		unitcount2 = unitcount2 + CourseUnits2[i];
 	}
@@ -100,7 +102,6 @@ void GWA(int GPA1, int GPA2, int* WeightedAve) {
 }
 
 int CAD(int GWA, int regStudent) { // Check if passes CAD requirements
-	// check flowchart for program flow
 	int i;
 	
 	if(regStudent != 0 && GWA >= 90) {
