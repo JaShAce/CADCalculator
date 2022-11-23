@@ -16,9 +16,8 @@ int main () {
 	{"CCF 03", "BIO 01", "BIO 01L", "EIP 01S", 
 	 "ELEC 01", "ENGL 01", "LIT 01", "PE 03", 
 	 "PHYS 01", "PHYS 01L", "REED 03", "RES 02S"};
-	const char CourseNames2[11][10] = // second semester grade 12 subjects
-	{"CCF 04", "BIO 02", "BIO 02L", "CONARTS 01", 
-	 "ENTREP 01", "MIL 01", "PE 04", "PHYS 02", 
+	const char CourseNames2[11][11] = // second semester grade 12 subjects
+	{"CCF 04", "BIO 02", "BIO 02L", "CONARTS 01", "ENTREP 01", "MIL 01", "PE 04", "PHYS 02", 
 	 "PHYS 02L", "REED 04", "RES 03S"};
 	
 	char name[50];
@@ -65,12 +64,12 @@ void GPA(int* avg1, int* avg2) { // Calculate GWA
 	for(i=0; i<=m; i++) {
 		sum1 = sum1 + CourseGrades1[i];
 	}
-	*avg1 = sum1 / m;
+	*avg1 = sum1 / 12;
 	// Average second semester
 	for(i=0; i<=n; i++) {
 		sum2 = sum2 + CourseGrades2[i];
 	}
-	*avg2 = sum2 / n;
+	*avg2 = sum2 / 11;
 
 	return;
 }
