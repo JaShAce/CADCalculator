@@ -17,7 +17,9 @@ int main () {
 	 "ELEC 01", "ENGL 01", "LIT 01", "PE 03", 
 	 "PHYS 01", "PHYS 01L", "REED 03", "RES 02S"};
 	const char CourseNames2[11][10] = // second semester grade 12 subjects
-	{"CCF 04", "BIO 02", "H", "L", "N", "AWDJJI"};
+	{"CCF 04", "BIO 02", "BIO 02L", "CCF 04", 
+	 "CONARTS 01", "ENTREP 01", "MIL 01", "PE 04",
+	 "PHYS 02", "PHYS 02L", "REED 04", "RES 03S"};
 	
 	char name[50];
 	int i, regStudent, GPAve[2], GWAve;
