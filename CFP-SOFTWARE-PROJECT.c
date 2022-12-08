@@ -289,13 +289,13 @@ int CAD(float GWA, int regStudent) {
 	if(regStudent != 0 && GWA >= 90 && GWA <= 100) {
 		// Checks if the user has a grade in the first semester outside the grade range for the CAD award 
 		for(i=0;i<=m;i++) {
-			if (CourseGrades1[i] < 85 || CourseGrades1[i] > 100 ) {
+			if (CourseGrades1[i] < 85 || CourseGrades1[i] >= 100 ) {
 				return 0;
 			}
 		}
 		// Checks if the user has a grade in the second semester outside the grade range for the CAD award 
 		for(i=0;i<=n;i++) {
-			if (CourseGrades2[i] < 85|| CourseGrades1[i] > 100 ) {
+			if (CourseGrades2[i] < 85|| CourseGrades1[i] >= 100 ) {
 				return 0;
 			}
 		}	
