@@ -2,7 +2,6 @@
 #include <windows.h>
 
 
-
 // Declaring Functions
 void GPA(float* avg1, float* avg2); // GPA Calc semestral no unit
 void GWA(float GPA1, float GPA2, float* WeightedAve); // GWA Calc with unit weight
@@ -22,6 +21,7 @@ DESCRIPTION: This function asks the user’s name, if they’re a regular grade 
 COPYRIGHT: November 28, 2022
 ===============================================================
 */ 	
+
 	
 int main () {	
 	// color
@@ -46,6 +46,7 @@ int main () {
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("Welcome! \n\nThis software will calculate your GWA, and determine your eligibility for a CAD Award.\n"); //Tells the user what the software does
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+	
 	printf("\n--\n\nTo use this software, press any key to continue:"); // Asks the user if they want to proceed
 	getch();
 	printf("\n\n...Press any key to confirm choice:"); // Asks the user to confirm their choice
@@ -73,9 +74,10 @@ int main () {
 	    printf("\nInvalid input, please enter an integer: ");
 	    scanf("%s");
 	    SetConsoleTextAttribute(hConsole, 11);
-    } 
-    // Identify if the user is a regular student
-    SetConsoleTextAttribute(hConsole, 15);
+	}
+	
+	// Identify if the user is a regular student
+	SetConsoleTextAttribute(hConsole, 15);
 	if (regStudent != 0){ 
     	printf("\nYou are a regular student.\n");
 	}
@@ -83,9 +85,11 @@ int main () {
 		printf("\nYou are an irregular student.\n");
 	}
 	
+	
 	printf("\n--\n\n...Press Any Key to Continue:"); // Asks the user if they want to proceed
 	getch();
 	system("cls"); // Clears screen
+	
 	
 	SetConsoleTextAttribute(hConsole, 15);
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -109,7 +113,9 @@ int main () {
 		}
 	}
 	
+	
 	system("cls"); // Clears screen
+	
 	
 	SetConsoleTextAttribute(hConsole, 15);
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -133,16 +139,20 @@ int main () {
 		}
 	}
 	
+	
 	// Calls functions
 	GPA(&GPAve[0], &GPAve[1]);
 	GWA(GPAve[0], GPAve[1], &GWAve);
 	
+	
 	SetConsoleTextAttribute(hConsole, 15);
 	system("cls"); 	// Clears the screen
 
+	
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("Results Section\n"); // Indicates what section the user is in
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n--\n");
+	
 	// Displays Outputs
 	printf("\nHere are the results, "); // Displays the student's name
 	SetConsoleTextAttribute(hConsole, 11);
@@ -160,6 +170,7 @@ int main () {
 	printf("General Weighted Average (GWA): "); // Displays the calculated GWA
 	SetConsoleTextAttribute(hConsole, 11);
 	printf("%.2f\n", GWAve);
+	
 	
 	int GW = (int)GWAve;
 	SetConsoleTextAttribute(hConsole, 15);
